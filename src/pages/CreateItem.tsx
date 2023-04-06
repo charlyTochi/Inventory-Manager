@@ -64,7 +64,9 @@ const CreateItem: React.FC<Props> = ({navigation}) => {
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
-    description: Yup.string().required('Description is required'),
+    description: Yup.string()
+      .min(3, 'Name must be at least 3 characters long')
+      .required('Description is required'),
     totalStock: Yup.number()
       .required('Total stock is required')
       .positive('Total stock must be positive'),

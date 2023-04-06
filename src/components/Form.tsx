@@ -41,13 +41,14 @@ const Form: React.FC<FormProps> = ({
   };
 
   return (
-    <View>
+    <View style={{marginTop: 30, paddingHorizontal: 10}}>
       <Text style={styles.label}>Name</Text>
       <TextInput
         placeholder="Item Name"
         value={values.name}
         onChangeText={value => handleChange('name', value)}
         onBlur={() => handleBlur('name')}
+        style={{margin: 10}}
       />
       {touched.name && errors.name && (
         <Text style={styles.error}>{errors.name}</Text>
@@ -59,6 +60,7 @@ const Form: React.FC<FormProps> = ({
         value={values.description}
         onChangeText={value => handleChange('description', value)}
         onBlur={() => handleBlur('description')}
+        style={{margin: 10}}
       />
       {touched.description && errors.description && (
         <Text style={styles.error}>{errors.description}</Text>
@@ -71,6 +73,7 @@ const Form: React.FC<FormProps> = ({
         onChangeText={value => handleChange('totalStock', value)}
         onBlur={() => handleBlur('totalStock')}
         keyboardType="numeric"
+        style={{margin: 10}}
       />
       {touched.totalStock && errors.totalStock && (
         <Text style={styles.error}>{errors.totalStock}</Text>
@@ -83,6 +86,7 @@ const Form: React.FC<FormProps> = ({
         onChangeText={value => handleChange('price', value)}
         onBlur={() => handleBlur('price')}
         keyboardType="decimal-pad"
+        style={{margin: 10}}
       />
       {touched.price && errors.price && (
         <Text style={styles.error}>{errors.price}</Text>
@@ -99,6 +103,8 @@ const styles = StyleSheet.create({
   label: {
     padding: 5,
     color: 'black',
+    fontSize: 15,
+    fontWeight: 'bold',
   },
   error: {
     color: 'red',

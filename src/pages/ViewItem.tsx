@@ -77,7 +77,7 @@ const ViewItem: React.FC<Props> = ({navigation, route}) => {
 
   return (
     <View style={styles.container}>
-      <View style={{flex: 1}}>
+      <View style={styles.itemContainer}>
         <Text>Name</Text>
         <Text style={styles.body}>{item.name}</Text>
         <Text>Description</Text>
@@ -99,9 +99,10 @@ const ViewItem: React.FC<Props> = ({navigation, route}) => {
 };
 
 const styles = StyleSheet.create({
+  itemContainer: {flex: 1, marginTop: 30},
   body: {
     fontSize: 20,
-    marginBottom: 10,
+    marginBottom: 20,
     textTransform: 'capitalize',
   },
   price: {
