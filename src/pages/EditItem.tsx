@@ -65,7 +65,7 @@ const EditItem: React.FC<EditItemScreenProps> = ({navigation, route}) => {
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
     description: Yup.string()
-      .min(3, 'Name must be at least 3 characters long')
+      .min(3, 'Description must be at least 3 characters long')
       .required('Description is required'),
 
     totalStock: Yup.number()

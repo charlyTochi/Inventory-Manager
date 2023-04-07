@@ -1,8 +1,16 @@
-import React from 'react';
 import {render} from '@testing-library/react-native';
+import {NavigationContainer} from '@react-navigation/native';
 import ViewItem from '../src/pages/ViewItem';
 import {ListItemStackParamList} from '../src/models/navigationTypes';
 import {RouteProp} from '@react-navigation/native';
+import React from 'react';
+
+jest.mock('@react-native-async-storage/async-storage', () => ({
+  getItem: jest.fn(),
+  setItem: jest.fn(),
+  removeItem: jest.fn(),
+  clear: jest.fn(),
+}));
 
 describe('ViewItem screen', () => {
   const mockNavigation = {
@@ -27,7 +35,9 @@ describe('ViewItem screen', () => {
 
   it('should match the snapshot', () => {
     const {toJSON} = render(
-      <ViewItem navigation={mockNavigation as any} route={mockRoute} />,
+      <NavigationContainer>
+        <ViewItem navigation={mockNavigation as any} route={mockRoute} />
+      </NavigationContainer>,
     );
     expect(toJSON()).toMatchSnapshot();
   });

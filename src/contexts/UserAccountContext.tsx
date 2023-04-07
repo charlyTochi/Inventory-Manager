@@ -54,8 +54,6 @@ const UserAccountProvider: React.FC<{children: React.ReactNode}> = ({
     asyncGetData(STORAGE_KEYS.USER).then(data => {
       if (data) {
         return data;
-      } else {
-        console.log('No data found');
       }
     });
   };

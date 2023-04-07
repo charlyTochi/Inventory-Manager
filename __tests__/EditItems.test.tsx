@@ -4,6 +4,13 @@ import EditItem from '../src/pages/EditItem';
 import {ListItemStackParamList} from '../src/models/navigationTypes';
 import {RouteProp} from '@react-navigation/native';
 
+jest.mock('@react-native-async-storage/async-storage', () => ({
+  getItem: jest.fn(),
+  setItem: jest.fn(),
+  removeItem: jest.fn(),
+  clear: jest.fn(),
+}));
+
 describe('EditItem screen', () => {
   const mockNavigation = {
     navigate: jest.fn(),

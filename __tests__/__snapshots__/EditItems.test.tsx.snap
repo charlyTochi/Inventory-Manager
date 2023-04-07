@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditItem screen should match the snapshot 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "bottom": 667,
+      "justifyContent": "center",
+      "position": "relative",
+      "top": 533.6,
+    }
+  }
+>
+  <ActivityIndicator />
+</View>
+`;
