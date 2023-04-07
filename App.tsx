@@ -21,7 +21,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={!loginUserToken ? 'Splash' : 'ListItems'}>
+        initialRouteName={!loginUserToken ? 'Login' : 'ListItems'}>
         {!loginUserToken ? (
           <Stack.Screen name="Login" component={Login} />
         ) : (
