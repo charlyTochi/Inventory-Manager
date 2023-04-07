@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Alert, View} from 'react-native';
+import {Alert} from 'react-native';
 import {Inventory} from '../services/inventory';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ListItemStackParamList} from '../models/navigationTypes';
@@ -64,7 +64,9 @@ const CreateItem: React.FC<Props> = ({navigation}) => {
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
-    description: Yup.string().required('Description is required'),
+    description: Yup.string()
+      .min(3, 'Description must be at least 3 characters long')
+      .required('Description is required'),
     totalStock: Yup.number()
       .required('Total stock is required')
       .positive('Total stock must be positive'),
@@ -74,14 +76,12 @@ const CreateItem: React.FC<Props> = ({navigation}) => {
   });
 
   return (
-    <View>
-      <Form
-        initialValues={initialValues}
-        onSubmit={handleCreateItem}
-        validationSchema={validationSchema}
-        submitButtonText="Save"
-      />
-    </View>
+    <Form
+      initialValues={initialValues}
+      onSubmit={handleCreateItem}
+      validationSchema={validationSchema}
+      submitButtonText="Save"
+    />
   );
 };
 

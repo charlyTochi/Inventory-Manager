@@ -8,14 +8,6 @@ export const asyncStoreData = async (key: string, data: any) => {
     console.error('Error storing data:', e);
   }
 };
-
-// export const asyncStoreData = async (key: string, value: any) => {
-//   try {
-//     await AsyncStorage.setItem(key, value);
-//   } catch (e) {
-//     console.error(e);
-//   }
-// };
 export const asyncGetData = async (key: string): Promise<null> => {
   try {
     const jsonValue = await AsyncStorage.getItem(key);

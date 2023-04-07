@@ -116,6 +116,7 @@ const styles = StyleSheet.create({
   tableHeader: {
     flexDirection: 'row',
     backgroundColor: '#f0f0f0',
+    marginTop: 20,
   },
   tableHeaderText: {
     flex: 1,

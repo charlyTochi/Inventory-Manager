@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ListItems from './src/pages/ListItems';
@@ -21,7 +21,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={!loginUserToken ? 'Splash' : 'ListItems'}>
+        initialRouteName={!loginUserToken ? 'Login' : 'ListItems'}>
         {!loginUserToken ? (
           <Stack.Screen name="Login" component={Login} />
         ) : (

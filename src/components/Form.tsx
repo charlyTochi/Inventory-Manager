@@ -1,5 +1,13 @@
 import React, {useState} from 'react';
-import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
+import {
+  Button,
+  KeyboardAvoidingView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 
 interface FormProps {
   initialValues: any;
@@ -41,64 +49,75 @@ const Form: React.FC<FormProps> = ({
   };
 
   return (
-    <View>
-      <Text style={styles.label}>Name</Text>
-      <TextInput
-        placeholder="Item Name"
-        value={values.name}
-        onChangeText={value => handleChange('name', value)}
-        onBlur={() => handleBlur('name')}
-      />
-      {touched.name && errors.name && (
-        <Text style={styles.error}>{errors.name}</Text>
-      )}
+    <KeyboardAvoidingView behavior="position">
+      <ScrollView>
+        <View style={styles.formDiv}>
+          <Text style={styles.label}>Name</Text>
+          <TextInput
+            placeholder="Item Name"
+            value={values.name}
+            onChangeText={value => handleChange('name', value)}
+            onBlur={() => handleBlur('name')}
+            style={{margin: 5}}
+          />
+          {touched.name && errors.name && (
+            <Text style={styles.error}>{errors.name}</Text>
+          )}
 
-      <Text style={styles.label}>Description</Text>
-      <TextInput
-        placeholder="Description"
-        value={values.description}
-        onChangeText={value => handleChange('description', value)}
-        onBlur={() => handleBlur('description')}
-      />
-      {touched.description && errors.description && (
-        <Text style={styles.error}>{errors.description}</Text>
-      )}
+          <Text style={styles.label}>Description</Text>
+          <TextInput
+            placeholder="Description"
+            value={values.description}
+            onChangeText={value => handleChange('description', value)}
+            onBlur={() => handleBlur('description')}
+            style={{margin: 5}}
+          />
+          {touched.description && errors.description && (
+            <Text style={styles.error}>{errors.description}</Text>
+          )}
 
-      <Text style={styles.label}>Total Stock</Text>
-      <TextInput
-        placeholder="900"
-        value={values.totalStock}
-        onChangeText={value => handleChange('totalStock', value)}
-        onBlur={() => handleBlur('totalStock')}
-        keyboardType="numeric"
-      />
-      {touched.totalStock && errors.totalStock && (
-        <Text style={styles.error}>{errors.totalStock}</Text>
-      )}
+          <Text style={styles.label}>Total Stock</Text>
+          <TextInput
+            placeholder="900"
+            value={values.totalStock}
+            onChangeText={value => handleChange('totalStock', value)}
+            onBlur={() => handleBlur('totalStock')}
+            keyboardType="numeric"
+            style={{margin: 5}}
+          />
+          {touched.totalStock && errors.totalStock && (
+            <Text style={styles.error}>{errors.totalStock}</Text>
+          )}
 
-      <Text style={styles.label}>Price</Text>
-      <TextInput
-        placeholder="90"
-        value={values.price}
-        onChangeText={value => handleChange('price', value)}
-        onBlur={() => handleBlur('price')}
-        keyboardType="decimal-pad"
-      />
-      {touched.price && errors.price && (
-        <Text style={styles.error}>{errors.price}</Text>
-      )}
+          <Text style={styles.label}>Price</Text>
+          <TextInput
+            placeholder="90"
+            value={values.price}
+            onChangeText={value => handleChange('price', value)}
+            onBlur={() => handleBlur('price')}
+            keyboardType="decimal-pad"
+            style={{margin: 5}}
+          />
+          {touched.price && errors.price && (
+            <Text style={styles.error}>{errors.price}</Text>
+          )}
 
-      <Button title={submitButtonText || 'Submit'} onPress={handleSubmit} />
-    </View>
+          <Button title={submitButtonText || 'Submit'} onPress={handleSubmit} />
+        </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 
 export default Form;
 
 const styles = StyleSheet.create({
+  formDiv: {paddingHorizontal: 10, paddingTop: 20},
   label: {
     padding: 5,
     color: 'black',
+    fontSize: 15,
+    fontWeight: 'bold',
   },
   error: {
     color: 'red',

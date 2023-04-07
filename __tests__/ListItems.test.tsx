@@ -1,9 +1,13 @@
-import React from 'react';
+import mockmockmockAsyncStorage from '@react-native-async-storage/async-storage/jest/async-storage-mock';
 import {render} from '@testing-library/react-native';
 import ListItems from '../src/pages/ListItems';
 import {ListItemStackParamList} from '../src/models/navigationTypes';
 import {RouteProp} from '@react-navigation/native';
-
+import React from 'react';
+jest.mock(
+  '@react-native-async-storage/async-storage',
+  () => mockmockmockAsyncStorage,
+);
 describe('ListItems screen', () => {
   const mockNavigation = {
     navigate: jest.fn(),
